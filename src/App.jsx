@@ -11,7 +11,7 @@ import Search from './Search'
 // Custom hook to persist state in localStorage
 const useSemiPersistentState = () => {
   // Initialize 'todoList' with the value from localStorage or an empty array if not found
-  const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem('savedTodoList')) || [])
+  const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem('savedTodoList')) || '[]')
   
   // Update localStorage every time 'todoList' changes
   useEffect(() => {
