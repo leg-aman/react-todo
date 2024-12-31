@@ -11,7 +11,21 @@ import Search from './Search'
 
 function App() {
  // Initialize 'todoList' with the value from localStorage or an empty array if not found
-  const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem('savedTodoList')) || '[]')
+  const [todoList, setTodoList] = useState([])
+  useEffect(() => {
+    const myPromise = new Promise((resolve, reject) => {
+      setTimeout( () => {
+        resolve({data : {
+          todoList: JSON.parse(localStorage.getItem('savedTodoList')) || []
+        }})
+      }, 2000)
+      })
+      // extract the todoList from the result object in the .then() method: setTodoList(result.data.todoList)
+      myPromise.then((result)=> {
+        setTodoList(result.data.todoList)
+      
+    })
+    }, [])
   
   // Update localStorage every time 'todoList' changes
   useEffect(() => {
