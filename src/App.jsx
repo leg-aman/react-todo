@@ -8,10 +8,6 @@ import TodoList from './TodoList'
 import AddTodoForm from './AddTodoForm'
 import Search from './Search'
 
- 
- 
-
-
 
 function App() {
  // Initialize 'todoList' with the value from localStorage or an empty array if not found
@@ -21,11 +17,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem('savedTodoList', JSON.stringify(todoList))
   }, [todoList])  // The hook depends on 'todoList' state change
-
-
-
-  // Use custom hook to get and set the todoList
-  // const [todoList, setTodoList]  = useSemiPersistentState() | delete
 
   // Function to add a new todo item to the list
   const addTodo = (newTodo) => {
