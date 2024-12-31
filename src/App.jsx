@@ -12,6 +12,7 @@ import Search from './Search'
 function App() {
  // Initialize 'todoList' with the value from localStorage or an empty array if not found
   const [todoList, setTodoList] = useState([])
+  const [isLoading, setIsLoading] = useState (true)
   useEffect(() => {
     const myPromise = new Promise((resolve, reject) => {
       setTimeout( () => {
@@ -23,13 +24,16 @@ function App() {
       // extract the todoList from the result object in the .then() method: setTodoList(result.data.todoList)
       myPromise.then((result)=> {
         setTodoList(result.data.todoList)
+        setIsLoading(false)
       
     })
     }, [])
   
   // Update localStorage every time 'todoList' changes
   useEffect(() => {
+    if(!isLoading){
     localStorage.setItem('savedTodoList', JSON.stringify(todoList))
+    }
   }, [todoList])  // The hook depends on 'todoList' state change
 
   // Function to add a new todo item to the list
@@ -43,6 +47,8 @@ function App() {
 
   return (
     <>
+    {  isLoading ? <p>Loading...</p> : ''}
+    
       <h1>Todo List</h1>
       {/* Pass the addTodo function as a prop to AddTodoForm component */}
       <AddTodoForm onAddTodo={addTodo} />
