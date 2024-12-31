@@ -8,9 +8,13 @@ import TodoList from './TodoList'
 import AddTodoForm from './AddTodoForm'
 import Search from './Search'
 
-// Custom hook to persist state in localStorage
-const useSemiPersistentState = () => {
-  // Initialize 'todoList' with the value from localStorage or an empty array if not found
+ 
+ 
+
+
+
+function App() {
+ // Initialize 'todoList' with the value from localStorage or an empty array if not found
   const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem('savedTodoList')) || '[]')
   
   // Update localStorage every time 'todoList' changes
@@ -18,16 +22,10 @@ const useSemiPersistentState = () => {
     localStorage.setItem('savedTodoList', JSON.stringify(todoList))
   }, [todoList])  // The hook depends on 'todoList' state change
 
- 
 
 
-  return [todoList, setTodoList]  // Return both state and updater function
-}
-
-
-function App() {
   // Use custom hook to get and set the todoList
-  const [todoList, setTodoList] = useSemiPersistentState()
+  // const [todoList, setTodoList]  = useSemiPersistentState() | delete
 
   // Function to add a new todo item to the list
   const addTodo = (newTodo) => {
