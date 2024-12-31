@@ -18,8 +18,12 @@ const useSemiPersistentState = () => {
     localStorage.setItem('savedTodoList', JSON.stringify(todoList))
   }, [todoList])  // The hook depends on 'todoList' state change
 
+ 
+
+
   return [todoList, setTodoList]  // Return both state and updater function
 }
+
 
 function App() {
   // Use custom hook to get and set the todoList
@@ -29,6 +33,10 @@ function App() {
   const addTodo = (newTodo) => {
     setTodoList((prevList) => [...prevList, newTodo])  // Update state by appending the new todo
   }
+  const removeTodo = (id) => {
+    const newTodoList = todoList.filter(todo => todo.id !== id); 
+    setTodoList(newTodoList); 
+  };
 
   return (
     <>
@@ -36,9 +44,9 @@ function App() {
       {/* Pass the addTodo function as a prop to AddTodoForm component */}
       <AddTodoForm onAddTodo={addTodo} />
       {/* Pass the todoList as a prop to the TodoList component */}
-      <TodoList todoList={todoList} />
+      <TodoList todoList={todoList}  onRemoveTodo={removeTodo}/>
       {/* Include the Search component */}
-      <Search />
+      {/* <Search /> */}
     </>
   )
 }
