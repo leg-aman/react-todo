@@ -9,7 +9,6 @@ import AddTodoForm from './AddTodoForm'
 import Search from './Search'
 import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 function App() {
-  // Initialize 'todoList' with the value from localStorage or an empty array if not found
   const [todoList, setTodoList] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   // Fetch data from Airtable
@@ -42,12 +41,11 @@ function App() {
   useEffect(() => {
     fetchData()
   }, [])
-  // Example of adding a todo:
+
   const addTodo = (newTodo) => {
     setTodoList([...todoList, newTodo]);
   };
 
-  // Example of removing a todo:
   const removeTodo = (id) => {
     setTodoList(todoList.filter(todo => todo.id !== id));
   };
@@ -56,6 +54,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Define the route for the todo list page */}
         <Route path='/' element={
       <>
         {isLoading ? <p>Loading...</p> : todoList.length === 0 ? <p>No todos available.</p> : ''}
@@ -68,6 +67,9 @@ function App() {
         {/* Include the Search component */}
         {/* <Search /> */}
       </>
+        } />
+        <Route path='/new' element = {
+        <h1>New To Do List</h1>
         } />
       </Routes>
     </Router>
