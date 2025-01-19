@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 import TodoList from './TodoList'
 import AddTodoForm from './AddTodoForm'
 import Search from './Search'
-
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 function App() {
   // Initialize 'todoList' with the value from localStorage or an empty array if not found
   const [todoList, setTodoList] = useState([])
@@ -42,18 +42,35 @@ function App() {
   useEffect(() => {
     fetchData()
   }, [])
+  // Example of adding a todo:
+  const addTodo = (newTodo) => {
+    setTodoList([...todoList, newTodo]);
+  };
+
+  // Example of removing a todo:
+  const removeTodo = (id) => {
+    setTodoList(todoList.filter(todo => todo.id !== id));
+  };
+
+
   return (
-    <>
-      {isLoading ? <p>Loading...</p> : todoList.length === 0 ? <p>No todos available.</p> : ''}
-      {isLoading ? <p>Loading...</p> : ''}
-      <h1>Todo List</h1>
-      {/* Pass the addTodo function as a prop to AddTodoForm component */}
-      <AddTodoForm onAddTodo={addTodo} />
-      {/* Pass the todoList as a prop to the TodoList component */}
-      <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
-      {/* Include the Search component */}
-      {/* <Search /> */}
-    </>
+    <Router>
+      <Routes>
+        <Route path='/' element={
+      <>
+        {isLoading ? <p>Loading...</p> : todoList.length === 0 ? <p>No todos available.</p> : ''}
+        {isLoading ? <p>Loading...</p> : ''}
+        <h1>Todo List</h1>
+        {/* Pass the addTodo function as a prop to AddTodoForm component */}
+        <AddTodoForm onAddTodo={addTodo} />
+        {/* Pass the todoList as a prop to the TodoList component */}
+        <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+        {/* Include the Search component */}
+        {/* <Search /> */}
+      </>
+        } />
+      </Routes>
+    </Router>
   )
 }
 export default App
