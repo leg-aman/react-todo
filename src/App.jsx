@@ -39,7 +39,7 @@ function App() {
       console.error('Error:', error)
     }
   }
-   useEffect(() => {
+  useEffect(() => {
     fetchData()
   }, [])
   return (
