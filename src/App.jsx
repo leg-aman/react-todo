@@ -12,7 +12,6 @@ function App() {
   // Initialize 'todoList' with the value from localStorage or an empty array if not found
   const [todoList, setTodoList] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-
   // Fetch data from Airtable
   const fetchData = async () => {
     const options = {
@@ -40,46 +39,13 @@ function App() {
       console.error('Error:', error)
     }
   }
-
-  useEffect(() => {
-    // const myPromise = new Promise((resolve, reject) => {
-    //   setTimeout(() => {
-    //     resolve({
-    //       data: {
-    //         todoList: JSON.parse(localStorage.getItem('savedTodoList')) || []
-    //       }
-    //     })
-    //   }, 2000)
-    // })
-    // // extract the todoList from the result object in the .then() method: setTodoList(result.data.todoList)
-    // myPromise.then((result) => {
-    //   setTodoList(result.data.todoList)
-    //   setIsLoading(false)
-
-    // })
+   useEffect(() => {
     fetchData()
   }, [])
-
-  // Update localStorage every time 'todoList' changes
-  useEffect(() => {
-    if (!isLoading) {
-      localStorage.setItem('savedTodoList', JSON.stringify(todoList))
-    }
-  }, [todoList])  // The hook depends on 'todoList' state change
-
-  // Function to add a new todo item to the list
-  const addTodo = (newTodo) => {
-    setTodoList((prevList) => [...prevList, newTodo])  // Update state by appending the new todo
-  }
-  const removeTodo = (id) => {
-    const newTodoList = todoList.filter(todo => todo.id !== id);
-    setTodoList(newTodoList);
-  };
-
   return (
     <>
       {isLoading ? <p>Loading...</p> : todoList.length === 0 ? <p>No todos available.</p> : ''}
-
+      {isLoading ? <p>Loading...</p> : ''}
       <h1>Todo List</h1>
       {/* Pass the addTodo function as a prop to AddTodoForm component */}
       <AddTodoForm onAddTodo={addTodo} />
@@ -90,5 +56,4 @@ function App() {
     </>
   )
 }
-
 export default App
