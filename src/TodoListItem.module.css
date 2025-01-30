@@ -45,10 +45,11 @@ ul {
 
 button {
     border-radius: 50px;
+    border: 1px solid rgb(191, 191, 191);
 }
 
 .btnRemove {
-    color: #09a8e2;
+    color: #f99898;
 }
 
 input {
