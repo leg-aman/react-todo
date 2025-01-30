@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    background-color: #efefef;
+}
+
+h1 {
+    font-family: 'sofia', sans-serif;
+    color: #09a8e2; 
+}
+
+ul {
+    list-style: none;
+}
+
+.ListItem {
+    background-color: #fff;
+    color: #09a8e2;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ListItem:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+button {
+    border-radius: 50px;
+    border: 1px solid rgb(191, 191, 191);
+}
+
+.btnRemove {
+    color: #f99898;
+}
+
+input {
+    background-color: #fff;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries */
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .ListItem {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ListItem button {
+        margin-top: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+/* For screens smaller than 480px */
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .ListItem {
+        padding: 8px 12px;
+        margin: 4px 0;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px 12px;
+    }
+
+    button {
+        padding: 8px 12px;
+    }
+}
