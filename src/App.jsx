@@ -2,10 +2,10 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import './TodoList'
+import './components/TodoList'
 import { useEffect } from 'react'
-import TodoList from './TodoList'
-import AddTodoForm from './AddTodoForm'
+import TodoList from './components/TodoList'
+import AddTodoForm from './components/AddTodoForm'
 import Search from './Search'
 import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 function App() {
@@ -19,7 +19,7 @@ function App() {
         Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`
       }
     }
-    const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}`
+    const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}?view=Grid%20view`
     try {
       const response = await fetch(url, options)
       if (!response.ok) throw new Error('Network response was not ok')
