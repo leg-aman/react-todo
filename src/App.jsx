@@ -2,10 +2,10 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import './TodoList'
+// import './TodoList'
 import { useEffect } from 'react'
-import TodoList from './TodoList'
-import AddTodoForm from './AddTodoForm'
+import TodoList from './components/TodoList'
+import AddTodoForm from './components/AddTodoForm'
 import Search from './Search'
 import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 function App() {
