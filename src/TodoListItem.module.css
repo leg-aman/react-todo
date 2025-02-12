@@ -20,6 +20,10 @@ h1 {
     color: #09a8e2; 
 }
 
+ul {
+    list-style: none;
+}
+
 .ListItem {
     background-color: #fff;
     color: #09a8e2;
