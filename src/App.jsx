@@ -19,12 +19,12 @@ function App() {
         Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`
       }
     }
-    const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}?view=Grid%20view`
+    const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}?view=Grid%20view&sort[0][field]=title&sort[0][direction]=asc`
     try {
       const response = await fetch(url, options)
       if (!response.ok) throw new Error('Network response was not ok')
       const data = await response.json()
-      console.log(data)
+      // console.log(data)
       const todos = data.records.map((todo) => {
         const newTodo = {
           id: todo.id,
