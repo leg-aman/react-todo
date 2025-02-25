@@ -1,0 +1,41 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav>ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 30% 0 30%;
+    overflow: hidden;
+    background-color: #efefef;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav>li {
+    flex: 1;
+    text-align: center;
+}
+
+nav>li>a {
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav>li a:hover:not(.active) {
+    background-color: #cac8c8;
+}
+
+.active {
+    background-color: #04AA6D;
+}
+
+body {
+    padding-top: 60px;
+}
