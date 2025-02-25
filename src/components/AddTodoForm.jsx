@@ -14,8 +14,7 @@ const AddTodoForm = ({ onAddTodo }) => {
     event.preventDefault()
     // pass the todoTitle to the parent component via the onAddTodo prop
     onAddTodo({
-      title: todoTitle,
-      id: Date.now()
+      title: todoTitle
     })
     // Reset the form fields
     setTodoTitle('')

@@ -15,11 +15,6 @@ body {
     background-color: #efefef;
 }
 
-h1 {
-    font-family: 'sofia', sans-serif;
-    color: #09a8e2; 
-}
-
 .ListItem {
     background-color: #fff;
     color: #09a8e2;
@@ -46,6 +41,7 @@ button {
 
 .btnRemove {
     color: #f99898;
+    cursor: pointer;
 }
 
 input {

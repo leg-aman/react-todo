@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+
+/* In App.module.css */
+.headerTitle {
+    font-family: 'sofia', sans-serif;
+    color: #09a8e2;
+    font-size: 32px;
+}
+
+.content {
+    color: grey;
+}
